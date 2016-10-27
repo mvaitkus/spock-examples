@@ -120,6 +120,6 @@ class PipesCanReturnMultipleValues extends Specification {
     }
 
     def cleanupSpec() {
-        sql.close()
+        sql.close() // Can be replaced with AutoCleanup on sql
     }
 }

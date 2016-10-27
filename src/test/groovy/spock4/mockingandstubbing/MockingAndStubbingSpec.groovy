@@ -18,7 +18,7 @@ class MockingSpeck extends Specification {
         }
 
         void send(String message) {
-            this.subscribers.each { it -> it.receive message }
+            this.subscribers.each { it.receive message }
         }
     }
 
@@ -28,8 +28,8 @@ class MockingSpeck extends Specification {
 
     def "should send messages to all subscribers"() {
         setup:
-        publisher.subscribers << subscriber // << is a Groovy shorthand for List.add()
-        publisher.subscribers << subscriber2
+        publisher.add(subscriber)
+        publisher.add(subscriber2)
 
         when:
         publisher.send("hello")
@@ -99,7 +99,7 @@ class MockingSpeck extends Specification {
 
         then:
         1 * subscriber.receive("hello") // demand one 'receive' call on 'subscriber'
-        _ * auditLog._                  // allow any interaction with 'auditing'
+        _ * auditLog._                  // allow any interaction with 'auditLog'
         0 * _                           // don't allow any other interaction
 
     }

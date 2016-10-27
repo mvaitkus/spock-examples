@@ -15,12 +15,12 @@ class BasicMatchersSpec extends Specification {
 
     def "empty stack should tell that it's empty"() {
         expect:
-        emptyStack.empty()
+        emptyStack.empty
     }
 
     def "empty stack should not report empty as false"() {
         expect:
-        emptyStack.empty() != false
+        emptyStack.empty != false
     }
 
     def "empty stack size should be less than 1"() {
@@ -44,7 +44,7 @@ class BasicMatchersSpec extends Specification {
 
     void stackIsClearlyEmpty(stack) {
         assert stack.empty
-        assert stack.size == 0
+        assert stack.size() == 0
     }
 
     def "check that stack is really empty in place"() {
